@@ -74,6 +74,7 @@ class(df)
 
 # what happens if we use cbind() 
 # instead of data.frame() here??
+cbind(a,b,c)
 
 # data.frame's are the workhorse of R
 # you can view the data and sort it in the viewer
@@ -218,13 +219,14 @@ gapminder %>%
 # use summarise function from dplyr
 gapminder %>%
   summarise(meanLE = mean(lifeExp), 
-            meanGDP = mean(gdpPercap))
+            meanGDP = mean(gdpPercap),
+            medianLE = median(lifeExp))
 
 # we can also use group_by() from dplyr
 # to get stats by other grouping variable
 # such as continent
 gapminder %>%
-  group_by(continent) %>%
+  group_by(country) %>%
   summarise(meanLE = mean(lifeExp), 
             meanGDP = mean(gdpPercap))
 
